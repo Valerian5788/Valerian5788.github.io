@@ -2,28 +2,44 @@
 <html>
 
 <head>
+    <!-- Déclaration des métadonnées -->
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>GeoAR.js demo</title>
+    <title>GeoAR.js demo</title> <!-- Titre de la page -->
+    
+    <!-- Chargement des bibliothèques -->
     <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <!-- Configuration de AR.js -->
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
+    
+    <!-- Inclusion du fichier JavaScript personnalisé -->
     <script src="./script.js"></script>
+    
+    <!-- Inclusion du fichier de style CSS personnalisé -->
     <link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
+    <!-- Zone pour afficher des instructions -->
     <div class="centered instructions"></div>
+    
+    <!-- Scène A-Frame pour la réalité augmentée -->
     <a-scene 
-        vr-mode-ui='enabled: false' 
-        embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-    <a-camera gps-camera rotation-reader></a-camera>
-</a-scene>
-<div class="centered">
-    <button data-action="change"></button>
-</div>
+        vr-mode-ui='enabled: false' <!-- Désactivation de l'interface VR -->
+        embedded <!-- Permet d'intégrer la scène dans un autre document -->
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'> <!-- Configuration de AR.js -->
+        
+        <!-- Caméra utilisée pour la réalité augmentée -->
+        <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene>
+    
+    <!-- Bouton pour effectuer une action (non définie ici) -->
+    <div class="centered">
+        <button data-action="change"></button>
+    </div>
 </body>

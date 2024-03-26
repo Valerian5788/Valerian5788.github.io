@@ -1,11 +1,16 @@
 window.onload = () => {
+    // Sélectionne le bouton avec l'attribut data-action="change"
     const button = document.querySelector('button[data-action="change"]');
+    // Change le texte du bouton pour afficher un symbole
     button.innerText = '﹖';
 
+    // Charge les emplacements statiques
     let places = staticLoadPlaces();
+    // Affiche les modèles aux emplacements chargés
     renderPlaces(places);
 };
 
+// Fonction pour charger des emplacements statiques
 function staticLoadPlaces() {
     return [
         {
@@ -18,6 +23,7 @@ function staticLoadPlaces() {
     ];
 }
 
+// Définition des modèles avec leurs propriétés
 var models = [
     {
         url: './assets/magnemite/scene.gltf',
@@ -39,7 +45,10 @@ var models = [
     },
 ];
 
+// Index du modèle actuel
 var modelIndex = 0;
+
+// Fonction pour définir les propriétés du modèle sur une entité
 var setModel = function (model, entity) {
     if (model.scale) {
         entity.setAttribute('scale', model.scale);
@@ -49,16 +58,13 @@ var setModel = function (model, entity) {
         entity.setAttribute('rotation', model.rotation);
     }
 
-    if (model.position) {
-        entity.setAttribute('position', model.position);
-    }
-
     entity.setAttribute('gltf-model', model.url);
 
     const div = document.querySelector('.instructions');
     div.innerText = model.info;
 };
 
+// Fonction pour afficher les modèles aux emplacements spécifiés
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
 
@@ -73,6 +79,7 @@ function renderPlaces(places) {
 
         model.setAttribute('animation-mixer', '');
 
+        // Écouteur d'événement pour le bouton de changement de modèle
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
