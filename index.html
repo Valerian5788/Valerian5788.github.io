@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réalité Augmentée</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a-scene embedded arjs='sourceType: webcam;'>
         <!-- Carré collé au sol -->
-        <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="2" color="#ff0000"></a-plane>
+        <a-plane id="groundPlane" position="0 0 0" rotation="-90 0 0" width="2" height="2" color="#ff0000"></a-plane>
         <!-- Modèles 3D, autres objets, etc. peuvent être ajoutés ici -->
     </a-scene>
 </body>
