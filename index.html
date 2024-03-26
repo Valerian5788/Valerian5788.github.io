@@ -1,47 +1,18 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <!-- Déclaration des métadonnées -->
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>GeoAR.js demo</title> <!-- Titre de la page -->
-    
-    <!-- Chargement des bibliothèques -->
-    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <!-- Configuration de AR.js -->
-    <script>
-        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
-    </script>
-    
-    <!-- Inclusion du fichier JavaScript personnalisé -->
-    <script src="./script.js"></script>
-    
-    <!-- Inclusion du fichier de style CSS personnalisé -->
-    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalité Augmentée</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body style='margin: 0; overflow: hidden;'>
-    <!-- Zone pour afficher des instructions -->
-    <div class="centered instructions"></div>
-    
-    <!-- Scène A-Frame pour la réalité augmentée -->
-    <a-scene 
-        vr-mode-ui='enabled: false' 
-        embedded 
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'> <!-- Configuration de AR.js -->
-        
-        <!-- Caméra utilisée pour la réalité augmentée -->
-        <a-camera gps-camera rotation-reader></a-camera>
-        <a-plane position="0 -1.5 -3" rotation="-90 0 0" width="10" height="10" color="#99ff99" opacity="0.5"></a-plane>
-
+<body>
+    <a-scene embedded arjs='sourceType: webcam;'>
+        <!-- Carré collé au sol -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="2" color="#ff0000"></a-plane>
+        <!-- Modèles 3D, autres objets, etc. peuvent être ajoutés ici -->
     </a-scene>
-    
-    <!-- Bouton pour effectuer une action (non définie ici) -->
-    <div class="centered">
-        <button data-action="change"></button>
-    </div>
 </body>
+</html>
