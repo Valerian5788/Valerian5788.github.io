@@ -20,7 +20,9 @@ window.onload = () => {
                 latitude: desiredLatitude + 0.001,
                 longitude: desiredLongitude
             });
-            document.querySelector("a-scene").appendChild(entity);
+            setTimeout(() => {
+                document.querySelector("a-scene").appendChild(entity);
+      }, 1000)
         }
         testEntityAdded = true;
     });
